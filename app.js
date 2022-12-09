@@ -21,11 +21,10 @@ var reletave = new RegExp('^\\/([a-z\\d%_.~+]+\\/)*([a-z\\d%_.~+]+)?(\\?[;&a-z\\
 
 function sendData(res, data) {
     // replace with regex
-    console.log(data.replaceAll(reletave, function(match) {
+    res.send(data.replaceAll(reletave, function(match) {
         // replace all matches with /proxy/{currentsite}/{match}
         return '/proxy/' + window.location.host + match;
         }))
-    res.send(data);
 }
 
 
